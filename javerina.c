@@ -86,7 +86,7 @@ int isValidString(char string[], char alphabet[]){
 	for(i=0; i<stringLen; i++){
 		for(j=0; j<alphaLen; j++){
 			if(string[i] == alphabet[j]){
-				count++;
+				count++;		//take note if a character in string is equivalent to a character in alphabet
 			}else{
 				count=0;
 			}
@@ -106,13 +106,13 @@ int getSkew(char string[], int n){
 	
 	for(i=0; i<=n; i++){
 		if(string[i] == 'G'){
-			g++;
+			g++;			//take note of number of G's
 		}else if(string[i] == 'C'){
-			c++;
+			c++;			//take note of number of C's
 		}
 	}
 	
-	skew = g-c;
+	skew = g-c;	//skew computation
 
 	return skew;
 }
@@ -126,11 +126,11 @@ int getMaxSkew(char string[], int n){
 		if(string[i] == 'G'){
 			g++;
 		}else if(string[i] == 'C'){
-			c++;
+			c=0;			//to make sure that maximum G value will be used, C value is equal to 0
 		}
 	}
 	
-	skew = g-c;
+	skew = g-c;	//skew computation
 
 	return skew;
 }
@@ -140,7 +140,7 @@ int getMinSkew(char string[], int n){
 	
 	for(i=0; i<=n; i++){
 		if(string[i] == 'G'){
-			g = 1;
+			g = 1;		//if the pointer sees a 'G', G count will be equal to 1, to make sure that min G value will be used
 		}else if(string[i] == 'C'){
 			c++;
 		}
@@ -148,7 +148,7 @@ int getMinSkew(char string[], int n){
 	
 	skew = g-c;
 
-	return skew;
+	return skew; //skew computation
 }
 
 
@@ -157,7 +157,7 @@ main(){
 	int num, choice, hamDistance, n;
 	
 	while(choice != 7){
-	 
+	 //printing of menu
 		printf("Menu\n");
 		printf("[1] Get Hamming Distance\n");
 		printf("[2] Count Substring Pattern\n");
