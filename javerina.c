@@ -1,13 +1,14 @@
+/*
+Author: Javerina, Mark Neil G.
+Student Number: 2013-09005
+Program description: A program that does basic bioinformatics functions.
+
+*/
+
+
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
- 
-
-
-
-
-
-
 int getHammingDistance(char str1[], char str2[]){
 
 	int st1Len, st2Len, i, x=0;
@@ -61,7 +62,7 @@ int countSubstrPattern(char original[], char pattern[]){
 }
 
 
-/*
+
 int isValidString(char string[], char alphabet[]){
 	char *p, *q;
 	int alphaLen, stringLen, i, j, count=0;
@@ -135,7 +136,7 @@ int getMinSkew(char string[], int n){
 	skew = g-c;
 
 	return skew;
-}*/
+}
 
 
 main(){
