@@ -9,23 +9,28 @@ Program description: A program that does basic bioinformatics functions.
 #include<stdio.h>
 #include<stdlib.h>
 #include<string.h>
+
+
+
 int getHammingDistance(char str1[], char str2[]){
 
 	int st1Len, st2Len, i, x=0;
 	
+	//getting the length of the string
 	st1Len = strlen(str1);
 	st2Len = strlen(str2);
 	
-	if(st1Len == st2Len){
-		for(i=0; i<st1Len; i++){
-			if(str1[i] != str2[i]){
-				x++;
+	if(st1Len == st2Len){	//to check if the strings are equal in length
+		//since the two strings are equal in length, the length of string1 can be considered for length of string2
+		for(i=0; i<st1Len; i++){	
+			if(str1[i] != str2[i]){	//take note of the inversion of characters(nucleotides)
+				x++;	//increment counter
 			}
 		}
 	}else{
-		x = NULL;
+		x = NULL;	//if the strings are not equal
 	}	 
-   	return x;
+   	return x;	//return the counter
 }
 
 
@@ -33,24 +38,32 @@ int getHammingDistance(char str1[], char str2[]){
 
 int countSubstrPattern(char original[], char pattern[]){
 	int origLen, pattLen, i, j, count=0, x=0;
-		
+	
+	//getting the length of strings
 	origLen = strlen(original)+1;
 	pattLen = strlen(pattern)+1;
 	
+	
+	//initialize index counters
 	i=0;
 	j=0;
-	while(i != origLen){
 	
+	//while not the last character or original string, check if pattern matches
+	while(i != origLen){	
+		
+		//if counter reached the end of pattern yet the pointer for original has not yet in the end, place pointer on the beggining of pattern
 		if(j == pattLen){
 			j=0;
 		}
-		
+	//take note if the character in original is equivalent in pattern	
 		if(original[i]==pattern[j]){
 			x++;
+		}else{
+			x=0;
 		}
-		
+	//if number of character matches is equivalent to patternlength pattern is a substring of original
 		if(x == pattLen){
-			count++;
+			count++;	//take note of the number of substring
 		}
 		
 		i++;
